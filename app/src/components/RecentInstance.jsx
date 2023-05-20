@@ -1,37 +1,7 @@
 import shortenAddress from "../utils/shortenAddress"
-import { readContract } from '@wagmi/core'
-import { useAccount } from 'wagmi'
-import { useEffect, useState } from "react"
-import { escrowContract } from '../escrow' 
 import copyIcon from '../assets/icons/copy-icon.png'
 
-export default function RecentInstances() {
-    const { address, isConnected, isDisconnected } = useAccount()
-    const [InstanceIds, setInstanceIds] = useState()
-
-    useEffect(()=>{
-        let isOk = true;
-        
-       async function getHistory(){
-        if(!isConnected) return setInstanceIds()
-
-        const data = await readContract({
-            address: escrowContract.constractAddress,
-            abi: escrowContract.abi,
-            functionName: 'getHistory',
-            args: [`${address}`]
-        })
-
-        setInstanceIds(data?.InstanceIds.slice(-3).toReversed())
-       }
-
-       isOk && getHistory()
-
-       return () => {
-        isOk = false;
-       }
-
-    }, [address, isConnected, isDisconnected])
+export default function RecentInstances({InstanceIds}) {
 
     return(<>
     <div className="contract">
