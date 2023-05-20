@@ -8,7 +8,7 @@ export default function RecentInstances({InstanceIds}) {
     <h1> Recent Instances </h1>
     
     <div className="history-list">
-        { InstanceIds && InstanceIds.map((item)=><div className="instance-list-item" key={item} title={item} >{shortenAddress(item)} <div className="copy-button" onClick={() => {navigator.clipboard.writeText(item)}}> <img src={copyIcon} alt="copy" /> </div></div>) }
+        { InstanceIds && InstanceIds.slice(-3).toReversed().map((item)=><div className="instance-list-item" key={item} title={item} >{shortenAddress(item)} <div className="copy-button" onClick={() => {navigator.clipboard.writeText(item)}}> <img src={copyIcon} alt="copy" /> </div></div>) }
     </div>
 
     </div>
