@@ -2,6 +2,12 @@ body {
   background-color: #eee;
   display: flex;
   font-family: 'Muli', sans-serif;
+  padding: 0;
+}
+
+#root{
+  width: 100%;
+  height: 100vh;
 }
 
 .contract, .existing-contracts {
@@ -10,6 +16,7 @@ body {
   padding: 40px;
   border: 1px solid #ddd;
   background-color: #fff;
+  min-width: 21rem;
 }
 
 h1 {
@@ -32,7 +39,7 @@ input[type="text"] {
 }
 
 .button {
-  background-color: #f58427;
+  background-color: #3387cc;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -41,7 +48,6 @@ input[type="text"] {
   padding: 9px 25px;
   font-size: 14px;
   letter-spacing: 1px;
-  cursor: pointer;
 }
 
 .existing-contract ul {
